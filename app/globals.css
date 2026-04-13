@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-green-primary: #39DB4A;
+  --color-green-dark: #2ecc40;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Nunito', sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+  scroll-behavior: smooth;
+}
+
+a, button {
+  transition: all 0.2s ease;
+}
