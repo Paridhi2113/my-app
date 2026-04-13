@@ -1,4 +1,4 @@
-import PageHero from "../components/Heropage";
+
 import Link from "next/link";
 
 const timeline = [
@@ -21,12 +21,7 @@ const team = [
 export default function AboutPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Our Story"
-        title="Passion, Craft,"
-        titleAccent="Legacy"
-        subtitle="Seventeen years of devotion to the art of French cuisine — a story of ambition, family, and love."
-      />
+    
 
       {/* Story section */}
       <section className="py-24" style={{ background: "var(--dark)" }}>
