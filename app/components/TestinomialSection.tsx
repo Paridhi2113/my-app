@@ -11,103 +11,85 @@ const reviewers = [
 
 export default function Testimonials() {
   return (
-    <section style={{ padding: "80px 0", background: "#fff", overflow: "hidden" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 80 }}>
+    <section className="py-20 bg-white overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center gap-16">
 
-          {/* Left — Chef */}
-          <div style={{ flex: 1, display: "flex", justifyContent: "center", alignItems: "flex-end", position: "relative", minHeight: 460 }}>
+          {/* Left — Chef on green circle */}
+          <div className="flex-1 flex items-end justify-center relative" style={{ minHeight: 480 }}>
 
             {/* Green circle */}
-            <div style={{
-              position: "absolute",
-              width: 320, height: 320,
-              borderRadius: "50%",
-              background: "#39DB4A",
-              bottom: 0,
-              left: "50%",
-              transform: "translateX(-50%)",
-            }} />
+            <div
+              className="absolute rounded-full bg-[#39DB4A]"
+              style={{ width: 340, height: 340, bottom: 0, left: "50%", transform: "translateX(-50%)" }}
+            />
 
-            {/* Chef image */}
-            <div style={{ position: "relative", zIndex: 2, width: 280, height: 400 }}>
+            {/* Chef photo */}
+            <div className="relative z-10" style={{ width: 300, height: 420 }}>
               <Image
                 src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=600&q=80"
                 alt="Our Best Chef"
                 fill
-                style={{ objectFit: "cover", objectPosition: "top", borderRadius: "9999px 9999px 0 0" }}
+                className="object-cover object-top"
+                style={{ borderRadius: "9999px 9999px 0 0" }}
               />
             </div>
 
-            {/* Emoji badges */}
-            <div style={{
-              position: "absolute", top: 60, left: "10%", zIndex: 3,
-              background: "#fff", borderRadius: "50%", width: 40, height: 40,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.1)", fontSize: 18,
-            }}>😊</div>
-            <div style={{
-              position: "absolute", top: 30, right: "10%", zIndex: 3,
-              background: "#fff", borderRadius: "50%", width: 40, height: 40,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.1)", fontSize: 18,
-            }}>🍕</div>
+            {/* Floating emojis */}
+            <div className="absolute bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md text-lg z-20" style={{ top: 60, left: "15%" }}>
+              😊
+            </div>
+            <div className="absolute bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md text-lg z-20" style={{ top: 30, right: "10%" }}>
+              🍕
+            </div>
 
-            {/* Badge */}
-            <div style={{
-              position: "absolute", bottom: 10, right: "5%", zIndex: 3,
-              background: "#fff", borderRadius: 16, padding: "10px 18px",
-              boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
-              border: "1px solid #f0f0f0",
-            }}>
-              <p style={{ fontSize: 13, fontWeight: 700, color: "#111", fontFamily: "'Nunito', sans-serif", whiteSpace: "nowrap" }}>
-                Our Best Chef 😊
-              </p>
+            {/* Our Best Chef badge */}
+            <div
+              className="absolute bg-white rounded-2xl shadow-xl px-5 py-3 border border-gray-100 z-20"
+              style={{ bottom: 10, right: "5%" }}
+            >
+              <p className="text-sm font-bold text-gray-800 whitespace-nowrap">Our Best Chef 😊</p>
             </div>
           </div>
 
           {/* Right — Text */}
-          <div style={{ flex: 1, maxWidth: 520 }}>
-            <p style={{
-              color: "#39DB4A", fontSize: 12, fontWeight: 700,
-              letterSpacing: "0.15em", textTransform: "uppercase",
-              marginBottom: 16, fontFamily: "'Nunito', sans-serif",
-            }}>
+          <div className="flex-1 max-w-lg">
+            <p className="text-[#39DB4A] text-xs font-bold tracking-[0.2em] uppercase mb-4">
               TESTIMONIALS
             </p>
-            <h2 style={{ fontSize: 36, fontWeight: 800, color: "#111", lineHeight: 1.2, marginBottom: 20, fontFamily: "'Nunito', sans-serif" }}>
-              What Our Customers<br />Say About Us
+            <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
+              What Our Customers
+              <br />
+              Say About Us
             </h2>
-            <p style={{ fontSize: 15, color: "#777", lineHeight: 1.8, marginBottom: 32, fontFamily: "'Nunito', sans-serif" }}>
+            <p className="text-gray-500 text-base leading-relaxed mb-8">
               "I had the pleasure of dining at Foodi last night, and I'm still raving about
               the experience! The attention to detail in presentation and service was impeccable"
             </p>
 
-            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-              <div style={{ display: "flex" }}>
-                {reviewers.map((r, i) => (
-                  <div key={r.alt} style={{
-                    width: 46, height: 46, borderRadius: "50%",
-                    overflow: "hidden", border: "2px solid #fff",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.12)",
-                    marginLeft: i === 0 ? 0 : -12,
-                  }}>
-                    <Image src={r.src} alt={r.alt} width={46} height={46} style={{ objectFit: "cover", width: "100%", height: "100%" }} />
+            <div className="flex items-center gap-5">
+              {/* Stacked avatars */}
+              <div className="flex -space-x-3">
+                {reviewers.map((r) => (
+                  <div
+                    key={r.alt}
+                    className="w-12 h-12 rounded-full border-2 border-white overflow-hidden shadow-md"
+                  >
+                    <Image src={r.src} alt={r.alt} width={48} height={48} className="object-cover w-full h-full" />
                   </div>
                 ))}
               </div>
               <div>
-                <p style={{ fontSize: 13, fontWeight: 700, color: "#333", marginBottom: 4, fontFamily: "'Nunito', sans-serif" }}>
-                  Customer Feedback
-                </p>
-                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                  <Star size={14} color="#FBBF24" fill="#FBBF24" />
-                  <span style={{ fontSize: 14, fontWeight: 800, color: "#111", fontFamily: "'Nunito', sans-serif" }}>4.9</span>
-                  <span style={{ fontSize: 13, color: "#aaa", fontFamily: "'Nunito', sans-serif" }}>(18.6k Reviews)</span>
+                <p className="text-sm font-bold text-gray-800 mb-1">Customer Feedback</p>
+                <div className="flex items-center gap-1.5">
+                  <Star size={15} className="text-yellow-400 fill-yellow-400" />
+                  <span className="text-base font-extrabold text-gray-900">4.9</span>
+                  <span className="text-sm text-gray-400">(18.6k Reviews)</span>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
